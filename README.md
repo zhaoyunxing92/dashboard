@@ -1,6 +1,6 @@
 # ep-dashboard
 
-> 司机招聘后台
+> vue + element ui 管理后台界面
 
 ## Build Setup
 
