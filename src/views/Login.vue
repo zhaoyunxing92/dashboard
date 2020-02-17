@@ -61,11 +61,11 @@
     }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss">
     .login-container {
         height: 100%;
         width: 100%;
-        background-color: #eee;
+        background-color: #ececec;
 
         .login-box {
             width: 450px;
