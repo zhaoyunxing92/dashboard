@@ -1,4 +1,4 @@
-# hello
+# dashboard
 
 ## Project setup
 ```
