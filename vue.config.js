@@ -1,16 +1,10 @@
 module.exports = {
-    // publicPath: process.env.NODE_ENV === "production" ? "./" : "./",
-    publicPath: "./",
-    outputDir: "dist",
-    /* 放置生成的静态文件目录（js css img） */
-    assetsDir: "static",
-    /* 指定生成的index.html 输出路径 相对 default: index.html */
-    indexPath: "index.html",
-    /* 指定生成文件名中包含hash default: true */
+    publicPath: './',
+    outputDir: 'dist',
+    assetsDir: 'static',
+    indexPath: 'index.html',
     filenameHashing: true,
-    /* 是否保存时 lint 代码 */
-    lintOnSave: process.env.NODE_ENV === "production",
-    /* 是否使用编译器 default: false */
+    lintOnSave: process.env.NODE_ENV === 'production',
     runtimeCompiler: false,
     productionSourceMap: true,
     integrity: false,
@@ -19,8 +13,8 @@ module.exports = {
             .plugin('html')
             .tap(args => {
                 args[0].title = 'dashboard';
-                return args
-            })
+                return args;
+            });
     },
     configureWebpack: {
         resolve: {
@@ -30,23 +24,20 @@ module.exports = {
                 'views': '@/views',
                 '@': 'src'
             }
-        },
+        }
     },
 
     // css相关配置
     css: {
-        // 是否使用css分离插件 ExtractTextPlugin
-        extract: process.env.NODE_ENV === "production",
-        // 开启 CSS source maps?
+        extract: process.env.NODE_ENV === 'production',
         sourceMap: false,
-        // css预设器配置项
         loaderOptions: {},
         requireModuleExtension: true
     },
 
     devServer: {
         port: 8710,
-        host: "localhost",
+        // host: "localhost",
         https: false,
         open: true,
         before: app => {
@@ -74,6 +65,5 @@ module.exports = {
     //     subpage: 'src/subpage/main.js'
     // },
     // 构建时开启多进程处理 babel 编译
-    parallel: require('os').cpus().length > 1,
+    parallel: require('os').cpus().length > 1
 };
-  

@@ -27,7 +27,7 @@
 
 <script>
     export default {
-        name: "Login",
+        name: 'Login',
         data() {
             return {
                 loginForm: {
@@ -42,7 +42,7 @@
                         {required: true, message: '请输入密码', trigger: 'blur'}
                     ]
                 }
-            }
+            };
         },
         methods: {
             /*登录*/
@@ -50,18 +50,22 @@
                 this.$refs.loginFormRef.validate(valid => {
                     if (!valid) return;
                     // 登录逻辑
-                    console.log(this.loginForm)
-                })
+                    let username = this.loginForm.username;
+                    let pwd = this.loginForm.password;
+                    if (username !== 'admin' || pwd !== '123456') {
+                        this.$message.error('账号或密码错误');
+                    }
+                });
             },
             /*重置*/
             resetForm() {
-                this.$refs.loginFormRef.resetFields()
+                this.$refs.loginFormRef.resetFields();
             }
         }
-    }
+    };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     .login-container {
         height: 100%;
         width: 100%;
@@ -99,7 +103,6 @@
             }
 
             /*按钮*/
-
             .login-form {
                 position: absolute;
                 bottom: 0;
