@@ -18,12 +18,11 @@ module.exports = {
         config
             .plugin('html')
             .tap(args => {
-                args[0].title = 'hello';
+                args[0].title = 'dashboard';
                 return args
             })
     },
     configureWebpack: {
-        name: 'abc',
         resolve: {
             alias: {
                 'assets': '@/assets',
