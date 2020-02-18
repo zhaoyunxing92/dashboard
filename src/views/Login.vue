@@ -55,6 +55,8 @@
                     if (username !== 'admin' || pwd !== '123456') {
                         this.$message.error('账号或密码错误');
                     }
+                    localStorage.setItem('token', '123456789');
+
                 });
             },
             /*重置*/
@@ -69,7 +71,6 @@
     .login-container {
         height: 100%;
         width: 100%;
-        background-color: #ececec;
 
         .login-box {
             width: 450px;

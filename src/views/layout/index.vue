@@ -1,18 +1,20 @@
 <template>
-    <el-container style=" border: 1px solid #eee">
-        <el-container>
-            <el-header style="text-align: right">
-                <el-dropdown>
-                    <i class="el-icon-setting" style="margin-right: 15px"></i>
-                    <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item>查看</el-dropdown-item>
-                        <el-dropdown-item>新增</el-dropdown-item>
-                        <el-dropdown-item>删除</el-dropdown-item>
-                    </el-dropdown-menu>
-                </el-dropdown>
-                <span>王小虎</span>
-            </el-header>
-            <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+    <el-container class="main-container">
+        <!--头-->
+        <el-header>
+            <el-dropdown>
+                <i class="el-icon-setting"></i>
+                <el-dropdown-menu slot="dropdown">
+                    <el-dropdown-item>查看</el-dropdown-item>
+                    <el-dropdown-item>新增</el-dropdown-item>
+                    <el-dropdown-item>删除</el-dropdown-item>
+                </el-dropdown-menu>
+            </el-dropdown>
+            <span>王小虎</span>
+        </el-header>
+        <!--中间-->
+        <el-container class="middle">
+            <el-aside width="200px">
                 <el-menu :default-openeds="['1', '3']">
                     <el-submenu index="1">
                         <template slot="title"><i class="el-icon-message"></i>导航一</template>
@@ -61,31 +63,66 @@
                     </el-submenu>
                 </el-menu>
             </el-aside>
-
-
-            <el-main>
-                <el-table :data="tableData">
-                    <el-table-column prop="date" label="日期" width="140">
-                    </el-table-column>
-                    <el-table-column prop="name" label="姓名" width="120">
-                    </el-table-column>
-                    <el-table-column prop="address" label="地址">
-                    </el-table-column>
-                </el-table>
-            </el-main>
+            <el-container>
+                <el-main>
+                    <el-table :data="tableData">
+                        <el-table-column prop="date" label="日期" width="140">
+                        </el-table-column>
+                        <el-table-column prop="name" label="姓名" width="120">
+                        </el-table-column>
+                        <el-table-column prop="address" label="地址">
+                        </el-table-column>
+                    </el-table>
+                </el-main>
+                <el-footer style="height:40px">Footer</el-footer>
+            </el-container>
         </el-container>
+
     </el-container>
 </template>
-<style>
-    .el-header {
-        background-color: #B3C0D1;
-        color: #333;
-        line-height: 60px;
+<style lang="scss" scoped>
+    .main-container {
+        height: 100%;
+        /*头*/
+        .el-header {
+            background-color: #409EFF;
+            color: #333;
+            line-height: 50px;
+            height: 50px;
+            text-align: right;
+            position: absolute;
+            /*z-index: 5;*/
+            top: 0;
+            width: 100%;
+
+            .el-icon-setting {
+                margin-right: 15px
+            }
+        }
+
+        .middle {
+            width: 100%;
+            overflow: auto;
+            top: 60px;
+            position: absolute;
+            /*z-index: 5;*/
+            bottom: 0;
+            box-sizing: content-box;
+
+            .el-aside {
+                height: 100%;
+                border-right: #dadada 1px solid;
+                background-color: #ffffff;
+            }
+
+            .el-footer {
+                line-height: 40px;
+                background-color: #ffffff;
+            }
+        }
     }
 
-    .el-aside {
-        color: #333;
-    }
+
 </style>
 
 <script>
@@ -98,7 +135,7 @@
             };
             return {
                 tableData: Array(20).fill(item)
-            }
+            };
         }
     };
 </script>
