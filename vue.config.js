@@ -6,7 +6,7 @@ module.exports = {
     filenameHashing: true,
     lintOnSave: process.env.NODE_ENV === 'production',
     runtimeCompiler: false,
-    productionSourceMap: true,
+    productionSourceMap: false,// 不用map文件
     integrity: false,
     chainWebpack: config => {
         config
